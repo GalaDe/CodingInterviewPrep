@@ -33,6 +33,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
         this.adjacencyList.get(source).push(edge);
     }
 
+    //TO-DO: Figure out how to delete vertexes
     removeVertex(vertex: any){
         if(vertex == null) throw new Error('Vertex has not been defined');
 
@@ -99,6 +100,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
         }
     }
 
+    //TO DO: Figure out how to calculate cost
     costOfPath(dest: any, source: any){
         const visited = new Set();
         let startNode = new Edges(dest, null);
@@ -116,5 +118,4 @@ export class DirectedWeightedGraphUsingAdjacencyList{
             }
         }
     }
-
 }
