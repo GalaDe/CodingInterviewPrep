@@ -1,5 +1,6 @@
-import { DirectedWeightedGraphUsingAdjacencyList } from "./DirectedWeightedGraphImpl_AdjacencyList";
-import { UndirectedGraphUsingAdjacencyList } from "./UndirectedGraphImpl_AdjacencyList";
+import { DirectedWeightedGraphUsingAdjacencyList } from "./DirectedWeightedGraphImplUsingAdjacencyList";
+import { GraphImplUsingMatrix } from "./GraphImplUsingMatrix";
+import { UndirectedGraphUsingAdjacencyList } from "./UndirectedGraphImplUsingAdjacencyList";
 
 
 
@@ -12,9 +13,9 @@ describe('Tests', () => {
     /*
         Undirected Graph:
 
-        A - C
-        |   |
-        B   E
+        A - C           DFS(rec): A B D F C E
+        |   |           DFS(iter): A C E B D F
+        B   E           BFS: A B C D E F
         |
         D - F
     
@@ -27,9 +28,9 @@ describe('Tests', () => {
 
         Directed Graph:
 
-        A -> C
-        |    |
-        ✔    ✔
+        A -> C          DFS(rec): A B D F C E
+        |    |          DFS(iter): A C E B D F
+        ✔    ✔          BFS: A B C D E F
         B    E
         |
         ✔
@@ -85,6 +86,38 @@ describe('Tests', () => {
         graph.printDfs('A');
         console.log('PRINT DFS RECURSIVE:');
         graph.prinDFSRec('A');
+        console.log('PRINT BFS RECURSIVE:');
+        graph.printBfs('A');
+    });
+
+    /*
+        Directed Graph:
+
+        A -> C              DFS(rec): A B D F C E
+        |    |              DFS(iter): A C E B D F
+        ✔    ✔              BFS: A B C D E F
+        B    E
+        |
+        ✔
+        D -> F
+    */
+    it('Test: Graph Implementation Using Matrix', async () => {
+        let graph = new GraphImplUsingMatrix(6);
+        graph.addVertex('A');
+        graph.addVertex('B');
+        graph.addVertex('C');
+        graph.addVertex('D');
+        graph.addVertex('E');
+        graph.addVertex('F');
+        graph.addConnection('A', 'C', false);
+        graph.addConnection('A', 'B', false);
+        graph.addConnection('B', 'D', false);
+        graph.addConnection('D', 'F', false);
+        graph.addConnection('C', 'E', false);
+        console.log('PRINT DFS RECURSIVE:');
+        graph.printDfsRec('A');
+        console.log('PRINT DFS ITERRATIVE:');
+        graph.printDfs('A');
         console.log('PRINT BFS RECURSIVE:');
         graph.printBfs('A');
     });
