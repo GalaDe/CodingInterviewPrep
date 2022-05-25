@@ -1,6 +1,14 @@
 
+/*
 
-export class Edges{
+    -----------------------------------------------------------------------------------------------------------------------------
+    GRAPH REPRESENTATION USING ADJACENCY LIST AND WEIGHTS: List is better choice if you are dealing primarily with vertices.
+    -----------------------------------------------------------------------------------------------------------------------------
+
+
+*/
+
+export class Vertex{
     connectedTo: any;
     weight: number; 
 
@@ -12,10 +20,10 @@ export class Edges{
 
 export class DirectedWeightedGraphUsingAdjacencyList{
 
-    adjacencyList: Map<any, Edges[]>;
+    adjacencyList: Map<any, Vertex[]>;
 
     constructor(){
-        this.adjacencyList = new Map<any, Edges[]>();
+        this.adjacencyList = new Map<any, Vertex[]>();
     }
 
     addVertex(vertex: any){
@@ -29,7 +37,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
     addConnection(source: any, dest: any, weight: number){
         if(source == null || dest == null) throw new Error('Vertex has not been defined');
 
-        let edge = new Edges(dest, weight);
+        let edge = new Vertex(dest, weight);
         this.adjacencyList.get(source).push(edge);
     }
 
@@ -53,7 +61,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
 
     prinDFSRec(startingVertex){
         const visited = new Set();
-        let startNode = new Edges(startingVertex, null);
+        let startNode = new Vertex(startingVertex, null);
         this.prinDFSRecHelper(startNode, visited);
     }
                   
@@ -70,7 +78,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
 
     printDfs(fromVertex: any){
         const visited = new Set();
-        let startNode = new Edges(fromVertex, null);
+        let startNode = new Vertex(fromVertex, null);
         let stack = [startNode];
 
         while(stack.length > 0){
@@ -86,7 +94,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
 
     printBfs(startingVertex: any){
         let visited = new Set();
-        let startNode = new Edges(startingVertex, null);
+        let startNode = new Vertex(startingVertex, null);
         let queue = [startNode];
         while(queue.length > 0){
             let current = queue.shift();
@@ -103,7 +111,7 @@ export class DirectedWeightedGraphUsingAdjacencyList{
     //TO DO: Figure out how to calculate cost
     costOfPath(dest: any, source: any){
         const visited = new Set();
-        let startNode = new Edges(dest, null);
+        let startNode = new Vertex(dest, null);
         let stack = [startNode];
 
         while(stack.length > 0){

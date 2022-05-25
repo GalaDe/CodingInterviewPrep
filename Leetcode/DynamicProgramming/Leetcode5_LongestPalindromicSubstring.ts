@@ -1,4 +1,6 @@
 /*
+    Leetcode 5: Medium
+
     Given a string s, return the longest palindromic substring in s.
     ref: https://leetcode.com/problems/longest-palindromic-substring/solution/
 
@@ -12,9 +14,6 @@
     Output: "bb"
 
     Solution: 
-
-
-
 */
 
 // N: length of string

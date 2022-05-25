@@ -1,5 +1,4 @@
 /*
-
     ref: https://algodaily.com/lessons/implementing-graphs-edge-list-adjacency-list-adjacency-matrix/javascript
     ref: https://ricardoborges.dev/data-structures-in-typescript-graph
     ref: https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/
@@ -9,7 +8,13 @@
     ref: https://www.educative.io/blog/data-structures-101-graphs-javascript
     ref: https://medium.com/@trejonstallsworth/graphs-in-javascript-831db916de10
     ref: https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/
+    ref: https://medium.com/@konduruharish/graphs-in-typescript-and-c-7cce9ea72476
+    ref: https://medium.com/before-semicolon/graph-data-structure-implementation-in-javascript-668f291a8a16
 
+
+    ---------------------------------------------------------------------------------------------------------
+    GRAPH REPRESENTATION USING LIST: is better choice if you are dealing are primarily with vertices.
+    ---------------------------------------------------------------------------------------------------------
 
     ---------------------------------------------------------------------------------------------------------
     WHAT IS GRAPH:
@@ -68,12 +73,72 @@
         C: A, D
         D: E
         E: null
+
+
+    
+    -----------------------------------------------------------------------------------------------------------------
+    PROS AND CONS:
+    -----------------------------------------------------------------------------------------------------------------
+
+    ADJ LIST                                                ADJ MATRIX
+
+    1. Uses less space                                      1. Uses more space
+    2. Faster to find all edjes and iterate over them       2. Slower to find all edjes and iterate over them
+    3. Slower to find an edge between two vertices          3. Fater to find an edge between two vertices
+
+    -----------------------------------------------------------------------------------------------------------------
+    TIME COMPLEXITY:
+    -----------------------------------------------------------------------------------------------------------------
+
+    Add Vertex: O(V^2)
+    Add Edge: O(1)
+    Remove Vertex: O(V^2)
+    Remove Edge: O(1)
+    Search: O(1)
+    
+    -----------------------------------------------------------------------------------------------------------------
+    SPACE COMPLEXITY: O(V^2)
+    -----------------------------------------------------------------------------------------------------------------
+
+
+
     ---------------------------------------------------------------------------------------------------------
     APLICATIONS USES GRAPH:
     ---------------------------------------------------------------------------------------------------------
     Graphs have multiple applications in software. They can be useful for social networks, map navigation, 
     browsing the web or even organizing the processes of your computers operating system. 
-    For these reasons, focusing on the implementation of graphs and developing algorithms to work with them is a critical concept in computer science.
+    For these reasons, focusing on the implementation of graphs and developing algorithms to work with them is a 
+    critical concept in computer science.
+
+    Whenever there is a complex connection of things that are non-linear or hierarchical there is a need for a graph. 
+    To make it even more clear, a linear data structure has a start and ending node, a hierarchical has a start node, 
+    and many ending nodes depending on the path you follow. A graph has multiple starting and ending nodes so if your data 
+    follows this pattern, you may need to use a graph.
+
+        GPS
+        Neural networks
+        Peer to peer networks
+        Search engine crawlers
+        Garbage collection
+        Social networking websites
+        Facebook
+        Google Maps
+        Amazon
+
+
+    Graphs are being used to improve the efficiency of the applications we use daily. These are a fundamental part of our day-to-day lives.
+
+    1. Facebook Graph API: uses the concept of graphs, where users are considered to be the vertices and an edge runs between friends and 
+                           other entities such as comments, photos, notes etc.
+
+    2. Google Maps:  similarly, bases their navigation system on graphs. An intersection of two or more roads is considered to be a vertex and 
+                    the road connecting two vertices is considered to be an edge. This way, they can calculate the shortest path between two vertices.
+
+    3. Most eCommerce websites like Amazon: use relationships between products to show recommendations to a user. This utilizes the 
+                                            network-structure of graphs to make connections and suggestions about related content.
+
+
+
 
 */
 
