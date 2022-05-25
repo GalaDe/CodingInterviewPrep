@@ -1,13 +1,16 @@
 /*
 
     ref: https://kalkicode.com/adjacency-matrix-representation-of-undirected-graph-in-typescript
+    ref: https://gist.github.com/rishabhverma17/1fa4b51a3c0b89b0cbe7b700c77c2323
 
 
-    ---------------------------------------------------------------------------------------------------------
-    GRAPH REPRESENTATION USING MATRIX
-    ---------------------------------------------------------------------------------------------------------
+
+    -----------------------------------------------------------------------------------------------------------------
+    GRAPH REPRESENTATION USING MATRIX: Matrix representation is better choice if you dealing are primarily with edges.
+    -----------------------------------------------------------------------------------------------------------------
     
-    An adjacency matrix is a matrix where both dimensions equal the number of nodes in our graph and each cell can either have the value 0 or 1.
+    An adjacency matrix is a matrix where both dimensions equal the number of nodes in our graph and each cell can 
+    either have the value 0 or 1.
     For implementation 2 array has been used one for vertices and for adj matrix.
 
                 A
@@ -20,8 +23,29 @@
           C 1  1  0 
 
 
+    -----------------------------------------------------------------------------------------------------------------
+    PROS AND CONS:
+    -----------------------------------------------------------------------------------------------------------------
 
+    ADJ LIST                                                ADJ MATRIX
 
+    1. Uses less space                                      1. Uses more space
+    2. Faster to find all edjes and iterate over them       2. Slower to find all edjes and iterate over them
+    3. Slower to find an edge between two vertices          3. Fater to find an edge between two vertices
+
+    -----------------------------------------------------------------------------------------------------------------
+    TIME COMPLEXITY:
+    -----------------------------------------------------------------------------------------------------------------
+
+    Add Vertex: O(1)
+    Add Edge: O(1)
+    Remove Vertex: O(V + E)
+    Remove Edge: O(E)
+    Search: O(V+E)
+    
+    -----------------------------------------------------------------------------------------------------------------
+    SPACE COMPLEXITY: O(V+E)
+    -----------------------------------------------------------------------------------------------------------------
 
 */
 
@@ -69,18 +93,31 @@ export class GraphImplUsingMatrix{
             this.adjmatrix[vertex2Indx][vertex1Indx] = 1;
     }
 
+    removeVertex(vertex: any){
+        let indx = this.vertices.indexOf(vertex);
+        this.vertices = this.vertices.filter(item => item != vertex);
+
+        //Remove row
+        this.adjmatrix.splice(indx, 1);
+        //Remove col
+        for (let i = 0; i < this.vertices.length; i++){
+            this.adjmatrix[i].splice(indx, 1);
+        }
+
+    }
+
     printDfsRec(startingVertex: any){
         let visited = new Set();
         return this.printDfsRecHelper(startingVertex, visited)
     }
 
     printDfsRecHelper(startingVertex, visited){
-
-        if(startingVertex == null) throw new Error('Provide valid vertex');
+        let indx = this.vertices.indexOf(startingVertex);
+        if(startingVertex == null || indx == -1) throw new Error('Provide valid vertex');
 
         visited.add(startingVertex);
         console.log(startingVertex);
-        let indx = this.vertices.indexOf(startingVertex);
+
         for (let i = 0; i < this.adjmatrix[indx].length; i++){
            
             if(this.adjmatrix[indx][i] == 1){
@@ -91,7 +128,8 @@ export class GraphImplUsingMatrix{
     }
 
     printDfs(startingVertex: any){
-        if(startingVertex == null) throw new Error('Provide valid vertex');
+        let indx = this.vertices.indexOf(startingVertex);
+        if(startingVertex == null || indx == -1) throw new Error('Provide valid vertex');
 
         let visited = new Set();
         let stack = [startingVertex];
@@ -113,7 +151,8 @@ export class GraphImplUsingMatrix{
     }
 
     printBfs(startingVertex: any){
-        if(startingVertex == null) throw new Error('Provide valid vertex');
+        let indx = this.vertices.indexOf(startingVertex);
+        if(startingVertex == null || indx == -1) throw new Error('Provide valid vertex');
 
         let visited = new Set();
         let queue = [startingVertex];

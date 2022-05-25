@@ -1,6 +1,7 @@
 import { DirectedWeightedGraphUsingAdjacencyList } from "./DirectedWeightedGraphImplUsingAdjacencyList";
 import { GraphImplUsingMatrix } from "./GraphImplUsingMatrix";
 import { UndirectedGraphUsingAdjacencyList } from "./UndirectedGraphImplUsingAdjacencyList";
+import { GraphImplTopologicalSort } from "./TopologicalSort";
 
 
 
@@ -109,16 +110,90 @@ describe('Tests', () => {
         graph.addVertex('D');
         graph.addVertex('E');
         graph.addVertex('F');
-        graph.addConnection('A', 'C', false);
-        graph.addConnection('A', 'B', false);
-        graph.addConnection('B', 'D', false);
-        graph.addConnection('D', 'F', false);
-        graph.addConnection('C', 'E', false);
+        graph.addConnection('A', 'C', true);
+        graph.addConnection('A', 'B', true);
+        graph.addConnection('B', 'D', true);
+        graph.addConnection('D', 'F', true);
+        graph.addConnection('C', 'E', true);
+        graph.removeVertex('E');
         console.log('PRINT DFS RECURSIVE:');
         graph.printDfsRec('A');
         console.log('PRINT DFS ITERRATIVE:');
         graph.printDfs('A');
         console.log('PRINT BFS RECURSIVE:');
         graph.printBfs('A');
+    });
+
+    /*
+            A                        DFS: 5 2 3 1 0 4
+           / \                       TS: A F B D E C
+          ✔   ✔ 
+         B    C <- F     
+          \       /
+           ✔     ✔  
+           D -> E  
+    
+    */
+    it('Test: Topological Sort', async () => {
+        let graph = new GraphImplTopologicalSort();
+        graph.addVertex('A');
+        graph.addVertex('B');
+        graph.addVertex('C');
+        graph.addVertex('D');
+        graph.addVertex('E');
+        graph.addVertex('F');
+        graph.addConnection('A', 'B');
+        graph.addConnection('A', 'C');
+        graph.addConnection('F', 'C');
+        graph.addConnection('F', 'E');
+        graph.addConnection('B', 'D');
+        graph.addConnection('D', 'E');
+        console.log(`PRINT TOPOLOGICAL SORT RECURSIVE DFS RECURSIVE: ${graph.topologicalSortDfsRec()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING DFS ITERATIVE: ${graph.topologicalSortDfs()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING BFS ITERATIVE: ${graph.topologicalSortBfs()}`);
+    });
+
+    it('Test: Topological Sort', async () => {
+        let graph = new GraphImplTopologicalSort();
+        graph.addVertex('A');
+        graph.addVertex('B');
+        graph.addVertex('C');
+        graph.addVertex('D');
+        graph.addVertex('E');
+        graph.addVertex('F');
+        graph.addVertex('G');
+        graph.addConnection('A', 'B');
+        graph.addConnection('A', 'C');
+        graph.addConnection('B', 'C');
+        graph.addConnection('B', 'D');
+        graph.addConnection('C', 'E');
+        graph.addConnection('D', 'F');
+        graph.addConnection('D', 'E');
+        graph.addConnection('G', 'F');
+        graph.addConnection('G', 'E');
+
+        console.log(`PRINT TOPOLOGICAL SORT RECURSIVE DFS RECURSIVE: ${graph.topologicalSortDfsRec()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING DFS ITERATIVE: ${graph.topologicalSortDfs()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING BFS ITERATIVE: ${graph.topologicalSortBfs()}`);
+    });
+
+
+    it('Test: Topological Sort', async () => {
+        let graph = new GraphImplTopologicalSort();
+        graph.addVertex(0);
+        graph.addVertex(1);
+        graph.addVertex(2);
+        graph.addVertex(3);
+        graph.addVertex(4);
+        graph.addVertex(5);
+        graph.addConnection(5, 2);
+        graph.addConnection(5, 0);
+        graph.addConnection(4, 0);
+        graph.addConnection(4, 1);
+        graph.addConnection(2, 3);
+        graph.addConnection(3, 1);
+        console.log(`PRINT TOPOLOGICAL SORT RECURSIVE DFS RECURSIVE: ${graph.topologicalSortDfsRec()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING DFS ITERATIVE: ${graph.topologicalSortDfs()}`);
+        console.log(`PRINT TOPOLOGICAL SORT USING BFS ITERATIVE: ${graph.topologicalSortBfs()}`);
     });
 });

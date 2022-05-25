@@ -1,0 +1,47 @@
+Difference between memoization and dynamic programming:
+
+Dynamic programming is typically implemented using tabulation (regular iterative), but can also be implemented using memoization.
+
+    ** Memoization is a term describing an optimization technique where you cache previously computed results, 
+                   and return the cached result when the same computation is needed again.
+
+        ** If you use memoization to solve the problem you do it by maintaining a map of already solved sub problems. 
+           You do it "top down" in the sense that you solve the "top" problem first (which typically recurses down to solve the sub-problems).
+
+        **  Usually memoization is implemented by recursion
+
+    ** Dynamic programming is a technique for solving problems of recursive nature, iteratively and is applicable 
+                           when the computations of the subproblems overlap.
+
+
+        ** When you solve a dynamic programming problem using tabulation you solve the problem "bottom up", i.e., 
+           by solving all related sub-problems first, typically by filling up an n-dimensional table. Based on the results in the table, 
+           the solution to the "top" / original problem is then computed.
+
+        ** Tabulation is implemented using iteration.
+
+
+Important:
+
+There do exist situations where using memoization has advantages. Dynamic programming needs to calculate every subproblem 
+because it doesn't know which one will be useful in the future. But memoization only calculate the subproblems related to the original problem. 
+Sometimes you may design a DP algorithm with theoretically tremendous amount of dp status. But by careful analyses you find that only an 
+acceptable amount of them will be used. In this situation it's preferred to use memoization to avoid huge execution time.
+
+----------------------------------
+Memoization Recipe:
+----------------------------------
+
+1. Make it work:
+
+    1) Visualize the problem as a tree
+    2) Implement the tree using recursion
+    3) Test it!!!!
+
+2. Make it efficient:
+
+    1) Add memo object
+    2) Add base case to return memo values
+    3) Store return values into the memo.
+
+

@@ -2,8 +2,6 @@ import { addTwoNumbers } from '../../DataStructure/LinkedList/AddTwoNumbers';
 import { ListNode, getSize } from '../../DataStructure/LinkedList/DataStructureImplementation/SinglyLinkedListImpl';
 import { lengthOfLongestSubstring } from '../String/lengthOflongestSubstring';
 import { findMedianSortedArrays } from '../Arrays/FindMedianSortedArrays';
-import { isMatchDynamicProgrammingImpl, isMatchDynamicProgrammingImpl2 } from '../DynamicProgramming/RegularExpressionMatching';
-import { longestPalindromeSubstring } from '../String/LongestPalindromicSubstring';
 import { searchInsert, searchInsert_2 } from '../Arrays/SearchInsertPosition';
 import { divideRecursiveApproach } from '../MathOperations/DivideTwoIntegers';
 import { reverse_2 } from '../MathOperations/ReverseInteger';
@@ -77,18 +75,6 @@ describe('Tests', () => {
       let num2 = [3, 4]
       let res = findMedianSortedArrays(num1, num2);
       console.log(res); 
-  });
-
-    it('Test Regular Expression Matching with valid data', async () => {
-      let s = "bly"
-      let p = "a*b.*y"
-      let res = isMatchDynamicProgrammingImpl2(s, p);
-      console.log(res); 
-  });
-
-  it('Test longestPalindromeSubstring with valid data', async () => {
-    let res = longestPalindromeSubstring("babad");
-    console.log(res); 
   });
 
   it('Test searchInsert with valid data', async () => {
