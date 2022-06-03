@@ -4,9 +4,12 @@
 
     Explanation:
 
-    You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+    You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, 
+    the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will 
+    automatically contact the police if two adjacent houses were broken into on the same night.
 
-    Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+    Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob 
+    tonight without alerting the police.
 
  
 
@@ -25,13 +28,22 @@
     Total amount you can rob = 2 + 9 + 1 = 12.
 
 
+    Time Complexity:
 
-
-
+    TC = O(n)
+    SC = O(1)
 */
 
-function rob(nums: number[]): number {
+export function rob(nums: number[]): number {
 
+    let prev: number = 0;
+    let curr: number = 0;
+
+    for(let n of nums){
+        let temp = prev;
+        prev = curr;
+        curr = Math.max(n + temp, prev);
+    }
     
-    return;
+    return curr;
 };

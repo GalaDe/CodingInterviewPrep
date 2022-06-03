@@ -28,9 +28,9 @@ because it doesn't know which one will be useful in the future. But memoization 
 Sometimes you may design a DP algorithm with theoretically tremendous amount of dp status. But by careful analyses you find that only an 
 acceptable amount of them will be used. In this situation it's preferred to use memoization to avoid huge execution time.
 
-----------------------------------
+--------------------------------------------------------------------
 Memoization Recipe:
-----------------------------------
+--------------------------------------------------------------------
 
 1. Make it work:
 
@@ -44,4 +44,25 @@ Memoization Recipe:
     2) Add base case to return memo values
     3) Store return values into the memo.
 
+--------------------------------------------------------------------
+DP Recipe:
+--------------------------------------------------------------------
+1. Vizualize the problem as a table
+2. Size the table based on the input
+3. Initialize the table with default values. 
+    For Example: If you need to return true/false. Initialize with true/false.
+                 If you need to return value. Initialize with 0s
+4. Seed the trivial answer into the table.
+    For Example: Fibonacci, the first 2 values 0 and 1
+                 TravelerGrid, the grid [1,1] --> 1
+5. Fill futher positions based on the current position.
+    
 
+
+----------------------------------
+Free-Coding Camp Problems:
+----------------------------------
+
+canSum --> 'Can you do it? yes/no'
+howSum --> 'How will you do it?'
+bestSum --> 'What is the best way to do it?'
