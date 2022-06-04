@@ -21,7 +21,8 @@
 
 */
 
-//[2,7,11,15], target = 9
+//[2,7,11,15], target = 9   
+//TC and SC = O(N)
 export function twoSum_1(nums: number[], target: number): number[] {
 
     let map = new Map();
@@ -46,10 +47,13 @@ export function twoSum_2(nums: number[], target: number): number[] {
 
     if(nums.length == 0) return arr;
 
-    let copyArr = [];
-    for (let i = 0; i < nums.length; i++) {
-        copyArr[i] = nums[i];
-    }
+    let copyArr = [...nums];
+
+    //line 50 and line 53-56 does the same thing.
+    // let copyArr = [];
+    // for (let i = 0; i < nums.length; i++) {
+    //     copyArr[i] = nums[i];
+    // }
 
     nums.sort((a,b)=> a-b);
    
@@ -74,3 +78,10 @@ export function twoSum_2(nums: number[], target: number): number[] {
     }
     return arr;
 };
+
+/*
+    [3, 1, 4, 5] taraget = 7
+
+
+*/
+
