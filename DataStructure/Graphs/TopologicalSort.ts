@@ -43,6 +43,17 @@
 
     For Example: In order to take a 400s classes, you first need to take 100s classes.
 
+    -----------------------------------------------------------------------------------------------------------------
+    Indegree and Outdegree graph:  https://www.tutorialspoint.com/graph_theory/graph_theory_fundamentals.htm
+    -----------------------------------------------------------------------------------------------------------------
+  
+    Degree of Vertex: It is the number of vertices adjacent to a vertex V.
+
+        ** Degree of Vertex in an Undirected Graph: An undirected graph has no directed edges.
+        ** Degree of Vertex in a Directed Graph:
+
+            1. Indegree of a Graph: Indegree of vertex V is the number of edges which are coming into the vertex V.
+            2. Outdegree of a Graph: Outdegree of vertex V is the number of edges which are going out from the vertex V.
 
 */
 

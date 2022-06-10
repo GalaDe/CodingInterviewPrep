@@ -1,5 +1,5 @@
 /*
-   Leetcode 127: Easy: https://leetcode.com/problems/contains-duplicate/
+   Leetcode 217: Easy: https://leetcode.com/problems/contains-duplicate/
 
    Description:
 
@@ -21,11 +21,12 @@
 
 */
 
-
+//TC: O(nlogn), SC = O(n)
 export function containsDuplicate(nums: number[]): boolean {
 
    let left = 0, right = 1;
 
+   //The sorting algorithm is a Dual-Pivot Quicksort offers O(n log(n)) performance on many data sets
    nums.sort();
    while(left < nums.length){
       if(nums[right] == nums[left])
@@ -34,5 +35,19 @@ export function containsDuplicate(nums: number[]): boolean {
       left++;
       right++;
    }
+   return false;
+};
+
+//TC = O(n), SC = O(1)
+export function containsDuplicate_2(nums: number[]): boolean {
+
+   let set = new Set();
+
+   for(let n of nums){
+      if(set.has(n))
+         return true;
+      else set.add(n);
+   }
+
    return false;
 };
