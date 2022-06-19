@@ -1,5 +1,6 @@
 import { GraphImplTopologicalSort } from "../../DataStructure/Graphs/TopologicalSort";
 import { cloneGraph, cloneGraph_1, GNode } from "./Leetcode133_CloneGraph";
+import { numIslands, numIslands_3 } from "./Leetcode200_NumberOfIslands";
 import { canFinish, canFinish_2, canFinish_3 } from "./Leetcode207_CourseSchedule";
 import { findOrder, findOrder_2 } from "./Leetcode210_CourseSchedule2";
 
@@ -128,5 +129,36 @@ describe('Tests', () => {
         console.log(findOrder_2(5, [[0,1], [0,2], [1,3],[1,4], [3,4]])); //[4, 3, 2, 1, 0]
         console.log(findOrder_2(4, [[1,0],[2,0],[3,1],[3,2]])); //[0,1,2,3] or [0,2,1,3].
         console.log(findOrder_2(2, [[0,1],[1,0]])); //[]
+    });
+
+    it('Test number of islands with valid data', async () => {
+        console.log(numIslands([
+            ["1","1","1","1","0"],
+            ["1","1","0","1","0"],
+            ["1","1","0","0","0"],
+            ["0","0","0","0","0"]])); //1
+
+        console.log(numIslands([
+            ["1","1","0","0","0"],
+            ["1","1","0","0","0"],
+            ["0","0","1","0","0"],
+            ["0","0","0","1","1"]
+          ])); //3
+    });
+
+
+    it('Test number of islands solution 3 with valid data', async () => {
+        console.log(numIslands_3([
+            ["1","1","1","1","0"],
+            ["1","1","0","1","0"],
+            ["1","1","0","0","0"],
+            ["0","0","0","0","0"]])); //1
+            
+        console.log(numIslands_3([
+            ["1","1","0","0","0"],
+            ["1","1","0","0","0"],
+            ["0","0","1","0","0"],
+            ["0","0","0","1","1"]
+          ])); //3
     });
 });

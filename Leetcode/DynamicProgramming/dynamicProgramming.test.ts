@@ -13,6 +13,7 @@ import { canConstructDynamicP, canConstructMemoization, canConstructRec } from "
 import { countConstructDynamicP, countConstructMemoization, countConstructRec } from "./FreeCodingCamp_CountConstructStr";
 import { allConstructDynamicP, allConstructMemoization, allConstructRec } from "./FreeCodingCamp_AllConstructStr";
 import { canSumDynamicP, canSumMemoization } from "./FreeCodingCamp_CanSum";
+import { numRollsToTarget, numRollsToTarget_DP, numRollsToTarget_Memoization } from "./Leetcode1115_RollDiceWithTargetSum";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -169,6 +170,24 @@ describe('Tests', () => {
       console.log(allConstructDynamicP('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //[]
       console.log(allConstructDynamicP('purple', ['purp', 'p', 'ur', 'le', 'purpl'])); //[[purp, le],[p, ur, p, le]] 
     });
+
+
+    it('Test Leetcode 1115: Roll dice with target sum: return all possible combinations', async () => {
+      console.log(numRollsToTarget(2, 6, 7)); // 6 ways
+      console.log(numRollsToTarget(1, 6, 3)); // 1 way
+      console.log(numRollsToTarget(30, 30, 500)); // 1 way
+
+      console.log(numRollsToTarget_DP(2, 6, 7)); // 6 ways
+      console.log(numRollsToTarget_DP(1, 6, 3)); // 1 way
+      console.log(numRollsToTarget_DP(30, 30, 500)); // 1 way
+
+      console.log(numRollsToTarget_Memoization(2, 6, 7)); // 6 ways
+      console.log(numRollsToTarget_Memoization(1, 6, 3)); // 1 way
+      console.log(numRollsToTarget_Memoization(30, 30, 500)); // 1 way
+
+    });
 });
+
+
 
 

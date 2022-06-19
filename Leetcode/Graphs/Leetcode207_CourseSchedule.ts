@@ -62,35 +62,35 @@
 //visited: 1 = visiting, 2 =  visited
 export function canFinish(numCourses: number, prerequisites: number[][]): boolean {
 
-    let preMap = new Map<number, number[]>();
+    let prereqMap = new Map<number, number[]>();
     let visited: number[] = [];
 
     let num = 0;
     //Add courses to the map
     while(num < numCourses){
-        preMap.set(num, []);
+        prereqMap.set(num, []);
         num++;
     }
 
     //Map each course to prereq list
     for(let course of prerequisites){
-        preMap.get(course[0]).push(course[1]);
+        prereqMap.get(course[0]).push(course[1]);
     }
 
     for (let i = 0; i < numCourses; i++) {
-        if (dfs(i, visited, preMap))
+        if (dfs(i, visited, prereqMap))
             return false;
     }
     return true
 };
 
-function dfs(course: number, visited: number[], preMap: Map<number, number[]>): boolean {
+function dfs(course: number, visited: number[], prereqMap: Map<number, number[]>): boolean {
     if(visited[course] == 2) return false; //fully visited
     if(visited[course] == 1) return true; //still visiting
 
     visited[course] = 1;
-    for(let p of preMap.get(course)){
-        if(dfs(p, visited, preMap))
+    for(let p of prereqMap.get(course)){
+        if(dfs(p, visited, prereqMap))
             return true;
     }
     visited[course] = 2;

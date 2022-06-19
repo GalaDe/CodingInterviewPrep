@@ -3,6 +3,7 @@ import { maxProfit } from "./Leetcode121_BestTimeToBuySellStock";
 import { containsDuplicate, containsDuplicate_2 } from "./Leetcode217_ContainsDuplicate";
 import { containsNearbyDuplicate } from "./Leetcode219_ContainsDuplicate2";
 import { containsNearbyAlmostDuplicate } from "./Leetcode220_ContainsDuplicate3";
+import { relativeSortArray } from "./RelativeSortArrays";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -33,5 +34,9 @@ describe('Tests', () => {
     it('Test contains duplicates 3 with valid data', async () => {
         let numbers =  [1,3,4,5,22,23,6,8,9,23,24,22,23,15,16,17,33,23,23,15,16,17,11,1,2,99];
         console.log(findNumbers(numbers)); //[1, 3, 22, 6, 8, 23, 22, 15, 33, 23, 23, 15, 11, 1, 99]
+    })
+
+    it('Test relativeSortArray with valid data', async () => {
+        console.log(relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])); //[2,2,2,1,4,3,3,9,6,7,19]
     })
 });

@@ -12,7 +12,39 @@
     Output: true
     Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 
-    Example 1:
+    Example 2:
 
+    Input: head = [1,2], pos = 0
+    Output: true
+    Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
 
 */
+
+
+ export class ListNode {
+    val: number
+    next: ListNode | null
+    constructor(val?: number, next?: ListNode | null) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+    }
+ }
+ 
+
+export function hasCycle(head: ListNode | null): boolean {
+    
+    if(head == null) return false;
+
+    let visited = new Set();
+
+    let curr = head;
+    while(curr !== null){
+        if(!visited.has(curr)){
+            visited.add(curr);
+            curr = curr.next;
+        }
+        else return true;
+    }
+
+    return false;
+};

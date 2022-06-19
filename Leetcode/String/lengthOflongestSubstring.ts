@@ -1,4 +1,3 @@
-import { Charset } from "aws-sdk/clients/ses";
 
 /*
 Explanation:

@@ -94,10 +94,6 @@ describe('Tests', () => {
     console.log(res); 
   });
 
-  it('Test zigzagConversion with valid data', async () => {
-    let res = convert_1('PAYPALISHIRING', 4);
-    console.log(res); 
-  });
 
   it('Test convert string to integer with valid data', async () => {
     let res = myAtoi_2("123b1");
