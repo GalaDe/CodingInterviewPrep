@@ -1,6 +1,8 @@
-import { ListNode } from './DataStructureImplementation/SinglyLinkedListImpl';
+import { ListNode } from '../../DataStructure/LinkedList/DataStructureImplementation/SinglyLinkedListImpl';
 
 /*
+   Leetcode 23: Hard: https://leetcode.com/problems/merge-k-sorted-lists/
+
     You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
     Merge all the linked-lists into one sorted linked-list and return it.
 

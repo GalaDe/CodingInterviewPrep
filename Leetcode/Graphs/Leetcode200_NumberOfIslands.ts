@@ -156,12 +156,12 @@ function dfs(grid: string[][], r: number, c: number) {
 //Memory Usage: 50.7 MB, less than 38.77%
 function bfs(grid, x, y) {
     let queue = [];
-    const matrix = [[1,0], [-1,0], [0,1],[0,-1]];
+    const direction = [[1,0], [-1,0], [0,1],[0,-1]];
     queue.push([x,y]);
     while (queue.length > 0) {
         for (let i = 0; i < queue.length; i++) {
             let curr = queue.shift();
-            for (const dir of matrix) {
+            for (const dir of direction) {
                 let r = curr[0] + dir[0];
                 let c = curr[1] + dir[1];
                 if (r < 0 ||  r >= grid.length || c < 0 || c >= grid[0].length || grid[r][c] == "0") {

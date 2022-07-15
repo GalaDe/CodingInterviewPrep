@@ -1,4 +1,4 @@
-import { addTwoNumbers } from '../../DataStructure/LinkedList/AddTwoNumbers';
+import { addTwoNumbers } from '../LinkedList/Leetcode2_AddTwoNumbers';
 import { ListNode, getSize } from '../../DataStructure/LinkedList/DataStructureImplementation/SinglyLinkedListImpl';
 import { lengthOfLongestSubstring } from '../String/lengthOflongestSubstring';
 import { findMedianSortedArrays } from '../Arrays/FindMedianSortedArrays';
@@ -8,12 +8,12 @@ import { reverse_2 } from '../MathOperations/ReverseInteger';
 import { convert_1 } from '../String/ZigzagConversion';
 import { myAtoi_2 } from '../String/ConvertStringToInt';
 import { letterCombinations_recursive2, letterCombinations_dynamic } from '../Backtracking/LetterCombinationsPhoneNumber';
-import { maxArea } from '../Arrays/ContainerWithMostWater';
+import { maxArea } from '../Arrays/Two_Pointers/Leetcode11_ContainerWithMostWater';
 import { dayOfYear } from '../MathOperations/DayOfTheYear';
-import { mergeKLists } from '../../DataStructure/LinkedList/MergeKSortedLists';
-import { threeSum } from '../Arrays/3Sum';
-import { twoSum_2} from '../Arrays/2Sum';
-import { threeSumClosest_1 } from '../Arrays/3SumClosest';
+import { mergeKLists } from '../LinkedList/Leetcode23_MergeKSortedLists';
+import { threeSum } from '../Arrays/Two_Pointers/3Sum';
+import { twoSum_2} from '../Arrays/Two_Pointers/2Sum';
+import { threeSumClosest_1 } from '../Arrays/Two_Pointers/3SumClosest';
 import { reorganizeString } from '../String/ReorganizeString';
 
 

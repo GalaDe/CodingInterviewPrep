@@ -1,8 +1,12 @@
 import { GraphImplTopologicalSort } from "../../DataStructure/Graphs/TopologicalSort";
+import { minCostConnectPoints_Kruskals, minCostConnectPoints_Kruskals_Leetcode, minCostConnectPoints_Prims_Optimized, minCostConnectPoints_Prims_Optimized2 } from "./Leeetcode1584_MinCostToConnectAllPoints";
 import { cloneGraph, cloneGraph_1, GNode } from "./Leetcode133_CloneGraph";
 import { numIslands, numIslands_3 } from "./Leetcode200_NumberOfIslands";
 import { canFinish, canFinish_2, canFinish_3 } from "./Leetcode207_CourseSchedule";
 import { findOrder, findOrder_2 } from "./Leetcode210_CourseSchedule2";
+import { validTree } from "./Leetcode261_GraphValidTree";
+import { alienOrder } from "./Leetcode269_AlienDictionary";
+import { pacificAtlantic_BFS, pacificAtlantic_DFS } from "./Leetcode417_PacificAtlanticWaterFlow";
 
 
 
@@ -161,4 +165,45 @@ describe('Tests', () => {
             ["0","0","0","1","1"]
           ])); //3
     });
+
+    it('Test pacific Atlantic water flow with valid data', async () => {
+        console.log(pacificAtlantic_DFS([[1,2,2,3,5],
+                                         [3,2,3,4,4],
+                                         [2,4,5,3,1],
+                                         [6,7,1,4,5],
+                                         [5,1,1,2,4]]));
+
+        console.log(pacificAtlantic_BFS([[1,2,2,3,5],
+                                         [3,2,3,4,4],
+                                         [2,4,5,3,1],
+                                         [6,7,1,4,5],
+                                         [5,1,1,2,4]]));
+    });
+
+    it('Test Leetcode 261: Graph Valid Tree', async () => {
+        //console.log(validTree(5, [[0,1],[0,2],[0,3],[1,4]])); //true
+        console.log(validTree(5, [[0,1],[1,2],[2,3],[1,3],[1,4]]));//false
+    });
+
+    it('Test Leetcode 1584: minCostConnectPoints', async () => {
+        console.log(minCostConnectPoints_Prims_Optimized([[0,0],[2,2],[3,10],[5,2],[7,0]]));//false
+    });
+
+    it('Test Leetcode 1584: minCostConnectPoints', async () => {
+        console.log(minCostConnectPoints_Prims_Optimized2([[0,0],[2,2],[3,10],[5,2],[7,0]]));//false
+    });
+
+    it('Test Leetcode 1584: minCostConnectPoints using Kruskals', async () => {
+        console.log(minCostConnectPoints_Kruskals([[0,0],[2,2],[3,10],[5,2],[7,0]]));//false
+    })
+
+    it('Test Leetcode 1584: minCostConnectPoints using Kruskals', async () => {
+        console.log(minCostConnectPoints_Kruskals_Leetcode([[0,0],[2,2],[3,10],[5,2],[7,0]]));//false
+    })
+
+    it('Test Leetcode 269: Alien Dictionary', async () => {
+        console.log(alienOrder(["wrt","wrf","er","ett","rftt"]));//false
+    })
+    
+
 });

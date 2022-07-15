@@ -35,6 +35,7 @@ export class GNode {
  }
 
  //Different implementation using GNode[] and BFS: TC = V+E, SC = O(n)
+ //SOLUTION IS NOT RIGHT
 export function cloneGraph(graph: GNode[]): GNode[] {
     if(graph == null) return null;
 
@@ -61,26 +62,27 @@ export function cloneGraph(graph: GNode[]): GNode[] {
     return graphClone;    
 }
 
+//IMPORTANT: CORRECT SOLUTION
 export function cloneGraph_1(node: GNode | null): GNode | null{
     let  map = new Map<any, GNode>();
-    return traverse(node, map)
+    return clone(node, map)
 }
 
-function traverse(node: GNode | null, map: Map<any, GNode>): GNode | null {
+function clone(node: GNode | null, map: Map<any, GNode>): GNode | null {
     if (node == null) return null;
     
-    let cloneNode = new GNode(node.val);
-    map.set(node.val, cloneNode);
+    let newNode = new GNode(node.val);
+    map.set(node.val, newNode);
     for (let neighboor of node.neighbors) {
         if (map.has(neighboor.val)) {
-            cloneNode.neighbors.push(map.get(neighboor.val));
+            newNode.neighbors.push(map.get(neighboor.val));
         }
         else {
-            let curr = traverse(neighboor, map);
-            cloneNode.neighbors.push(curr);
+            let curr = clone(neighboor, map);
+            newNode.neighbors.push(curr);
         }
     }
-    return cloneNode;
+    return newNode;
 }
 
 function cloneGraph_2(node: GNode | null): GNode | null {

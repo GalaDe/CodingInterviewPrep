@@ -35,6 +35,7 @@ export function hasCycle(head: ListNode | null): boolean {
     
     if(head == null) return false;
 
+    //use visited set to keep track of visited nodes to detect cycle
     let visited = new Set();
 
     let curr = head;

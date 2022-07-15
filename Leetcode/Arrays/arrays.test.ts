@@ -1,9 +1,13 @@
-import { findNumbers } from "./FindFirstConsecutiveIntegerInArray";
+import { findNumbers } from "./Two_Pointers/FindFirstConsecutiveIntegerInArray";
 import { maxProfit } from "./Leetcode121_BestTimeToBuySellStock";
 import { containsDuplicate, containsDuplicate_2 } from "./Leetcode217_ContainsDuplicate";
 import { containsNearbyDuplicate } from "./Leetcode219_ContainsDuplicate2";
 import { containsNearbyAlmostDuplicate } from "./Leetcode220_ContainsDuplicate3";
+import { productExceptSelf } from "./Leetcode238_ProductOfArrayExceptSelf";
+import { removeDuplicates } from "./Two_Pointers/Leetcode26_RemoveDuplicatesFromSortedArray";
 import { relativeSortArray } from "./RelativeSortArrays";
+import { longestConsecutive, longestConsecutive_usingSet } from "./Leetcode128_LongestConsecutiveSequence";
+import { hasGroupsSizeX } from "./FindPairInDeckOfCards";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -38,5 +42,33 @@ describe('Tests', () => {
 
     it('Test relativeSortArray with valid data', async () => {
         console.log(relativeSortArray([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6])); //[2,2,2,1,4,3,3,9,6,7,19]
+    })
+
+    it('Test productExceptSelf with valid data', async () => {
+        console.log(productExceptSelf([1, 2, 3, 4])); //[24, 12, 8, 6]
+        console.log(productExceptSelf([-1,1,0,-3,3])); //[0,0,9,0,0]
+    })
+
+    it('Test Leetcode 26: Remove Duplicates from Sorted Array: with valid data', async () => {
+        console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4])); //
+        console.log(removeDuplicates([1,1,2])); //
+    })
+
+    it('Test 128: Longest Consecutive Sequence using Array sort', async () => {
+        //console.log(longestConsecutive([100,4,200,1,3,2])); // 4
+        console.log(longestConsecutive([0,3,7,2,5,8,4,6,0,1])); //9 
+        console.log(longestConsecutive([1,2,0,1])) //3
+    })
+
+    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+        console.log(longestConsecutive_usingSet([100,4,200,1,3,2])); // 4
+        console.log(longestConsecutive_usingSet([0,3,7,2,5,8,4,6,0,1])); //9 
+        console.log(longestConsecutive_usingSet([1,2,0,1])) //3
+    })
+
+    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+        console.log(hasGroupsSizeX([1,1,1,2,2,2,3,3])); // 4
+        // console.log(longestConsecutive_usingSet([0,3,7,2,5,8,4,6,0,1])); //9 
+        // console.log(longestConsecutive_usingSet([1,2,0,1])) //3
     })
 });

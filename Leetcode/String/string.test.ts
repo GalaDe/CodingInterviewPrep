@@ -1,4 +1,4 @@
-import { addStrings } from "./addTwoNumbersAsString";
+import { addStrings, addStrings2 } from "./addTwoNumbersAsString";
 import { isValid } from "./Leetcode20_ValidParentheses";
 import { convert_1 } from "./ZigzagConversion";
 
@@ -21,8 +21,8 @@ describe('Tests', () => {
   });
 
   it('Test addStrings with data', async () => {
-    //console.log(addStrings('11', '123')); //134
-    console.log(addStrings('9333852702227987', '85731737104263')); //134
+    console.log(addStrings2('11', '123')); //134
+    //console.log(addStrings('9333852702227987', '85731737104263')); //134
   });
 
 });
