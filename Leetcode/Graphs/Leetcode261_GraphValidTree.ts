@@ -75,6 +75,9 @@
 
 
 export function validTree(n: number, edges: number[][]): boolean {
+
+    //means if # of vertexes is greater then the # of edges, 
+    if(edges.length < n) return false;
     
     //For the graph to be a valid tree, it must have exactly n - 1 edges
     if(edges.length !== n - 1) return false;

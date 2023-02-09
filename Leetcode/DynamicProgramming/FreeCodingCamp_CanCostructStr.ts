@@ -92,7 +92,7 @@ export function canConstructMemoization(target: string, wordBank: string [], mem
     return false;
 }
 
-export function canConstructDynamicP(target: string, wordBank: string []){
+export function canConstruct_Tabulation(target: string, wordBank: string []){
     
     const table = Array(target.length + 1).fill(false);
 

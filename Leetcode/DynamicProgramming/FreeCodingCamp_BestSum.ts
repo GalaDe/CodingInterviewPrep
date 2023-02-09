@@ -101,7 +101,7 @@ export function bestSumMemoization(numbers: number[], targetSum: number, memo: {
     return shortesCombination;
 }
 
-export function bestSumDynamicP(numbers: number [], targetSum: number){
+export function bestSum_Tabulation(numbers: number [], targetSum: number){
     
     const table = Array(targetSum + 1).fill(null);
 

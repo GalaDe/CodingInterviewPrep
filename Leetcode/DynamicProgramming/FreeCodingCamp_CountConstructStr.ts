@@ -107,6 +107,7 @@ export function countConstructRec(target: string, wordBank: string []){
     return count;
 }
 
+//Top Down Approach
 export function countConstructMemoization(target: string, wordBank: string [], memo:{}){
     if(target in memo) return memo[target];
     if(target === '') return 1;
@@ -124,7 +125,8 @@ export function countConstructMemoization(target: string, wordBank: string [], m
     return count;
 }
 
-export function countConstructDynamicP(target: string, wordBank: string []){
+//Bottom Up Approach
+export function countConstruct_Tabulation(target: string, wordBank: string []){
     
     const table = Array(target.length + 1).fill(0);
 

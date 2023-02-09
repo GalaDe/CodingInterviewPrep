@@ -134,7 +134,7 @@ export function allConstructMemoization(target: string, wordBank: string [], mem
     return arrRes;
 }
 
-export function allConstructDynamicP(target: string, wordBank: string []){
+export function allConstruct_Tabulation(target: string, wordBank: string []){
     
     const table = Array(target.length + 1).fill([]).map(() => []);
 

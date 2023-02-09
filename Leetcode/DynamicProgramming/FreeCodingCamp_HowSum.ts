@@ -83,7 +83,7 @@ export function howSumMemoization(numbers: number[], targetSum: number, memo:{})
     return null;
 };
 
-export function howSumDynamicP(numbers: number [], targetSum: number){
+export function howSum_Tabulation(numbers: number [], targetSum: number){
     
     const table = Array(targetSum + 1).fill(null);
 

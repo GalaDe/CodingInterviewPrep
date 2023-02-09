@@ -2,10 +2,12 @@ import { GraphImplTopologicalSort } from "../../DataStructure/Graphs/Topological
 import { minCostConnectPoints_Kruskals, minCostConnectPoints_Kruskals_Leetcode, minCostConnectPoints_Prims_Optimized, minCostConnectPoints_Prims_Optimized2 } from "./Leeetcode1584_MinCostToConnectAllPoints";
 import { cloneGraph, cloneGraph_1, GNode } from "./Leetcode133_CloneGraph";
 import { numIslands, numIslands_3 } from "./Leetcode200_NumberOfIslands";
+import { numberOfPaths } from "./Leetcode2077_PathsInMazeThatLeadToSameRoom";
 import { canFinish, canFinish_2, canFinish_3 } from "./Leetcode207_CourseSchedule";
 import { findOrder, findOrder_2 } from "./Leetcode210_CourseSchedule2";
 import { validTree } from "./Leetcode261_GraphValidTree";
 import { alienOrder } from "./Leetcode269_AlienDictionary";
+import { countComponents } from "./Leetcode323_NumberOfConnectedComponentsUndirectedGraph";
 import { pacificAtlantic_BFS, pacificAtlantic_DFS } from "./Leetcode417_PacificAtlanticWaterFlow";
 
 
@@ -203,6 +205,14 @@ describe('Tests', () => {
 
     it('Test Leetcode 269: Alien Dictionary', async () => {
         console.log(alienOrder(["wrt","wrf","er","ett","rftt"]));//false
+    })
+
+    it('Test Leetcode 323: Number of unconnected components', async () => {
+        console.log(countComponents(5, [[0,1],[1,2],[3,4]]));//2
+    })
+
+    it('Test Leetcode 2077: Number of cycles', async () => {
+        console.log(numberOfPaths(5, [[1,2],[5,2],[4,1],[2,4],[3,1],[3,4]]));//2
     })
     
 

@@ -7,7 +7,9 @@ import { productExceptSelf } from "./Leetcode238_ProductOfArrayExceptSelf";
 import { removeDuplicates } from "./Two_Pointers/Leetcode26_RemoveDuplicatesFromSortedArray";
 import { relativeSortArray } from "./RelativeSortArrays";
 import { longestConsecutive, longestConsecutive_usingSet } from "./Leetcode128_LongestConsecutiveSequence";
-import { hasGroupsSizeX } from "./FindPairInDeckOfCards";
+import { hasGroupsSizeX } from "./Leetcode914_FindPairInDeckOfCards";
+import { minDeletionSize } from "./Leetcode944_DeleteColumsToMakeSorted";
+import { minimumRounds } from "./Leetcode2244_MinimumRoundsToCompleteAllTasks";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -67,8 +69,19 @@ describe('Tests', () => {
     })
 
     it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
-        console.log(hasGroupsSizeX([1,1,1,2,2,2,3,3])); // 4
+        //console.log(hasGroupsSizeX([1,1,1,1,2,2,2,2,2,2])); // true
+        console.log(hasGroupsSizeX([0,0,0,1,1,1,1,1,1,2,2,2,3,3,3]));
         // console.log(longestConsecutive_usingSet([0,3,7,2,5,8,4,6,0,1])); //9 
         // console.log(longestConsecutive_usingSet([1,2,0,1])) //3
+    })
+
+    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+        //console.log(minDeletionSize(["abc", "bce", "cae"]));
+        console.log(minDeletionSize(["rrjk","furt","guzm"]));
+    })
+
+    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+        //console.log(minimumRounds([2,2,3,3,2,4,4,4,4,4]));
+        console.log(minimumRounds([7,7,7,7,7,7]));
     })
 });

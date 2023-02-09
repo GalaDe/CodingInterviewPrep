@@ -7,13 +7,14 @@ import { shortestCommonSupersequence } from "./Leetcode1092_ShortestCommonSupers
 import { uniquePathsDynamicP, uniquePathsMemoization, uniquePathsRec } from "./Leetcode62_UniquePathsGridTraveler";
 import { rob } from "./Leetcode198_HouseRobber";
 import { combinationSum } from "./Leetcode39_CombinationSum";
-import { howSumDynamicP, howSumMemoization, howSumRec } from "./FreeCodingCamp_HowSum";
-import { bestSumDynamicP, bestSumMemoization, bestSumRec } from "./FreeCodingCamp_BestSum";
-import { canConstructDynamicP, canConstructMemoization, canConstructRec } from "./FreeCodingCamp_CanCostructStr";
-import { countConstructDynamicP, countConstructMemoization, countConstructRec } from "./FreeCodingCamp_CountConstructStr";
-import { allConstructDynamicP, allConstructMemoization, allConstructRec } from "./FreeCodingCamp_AllConstructStr";
-import { canSumDynamicP, canSumMemoization } from "./FreeCodingCamp_CanSum";
+import { howSum_Tabulation, howSumMemoization, howSumRec } from "./FreeCodingCamp_HowSum";
+import { bestSum_Tabulation, bestSumMemoization, bestSumRec } from "./FreeCodingCamp_BestSum";
+import { canConstruct_Tabulation, canConstructMemoization, canConstructRec } from "./FreeCodingCamp_CanCostructStr";
+import { countConstruct_Tabulation, countConstructMemoization, countConstructRec } from "./FreeCodingCamp_CountConstructStr";
+import { allConstruct_Tabulation, allConstructMemoization, allConstructRec } from "./FreeCodingCamp_AllConstructStr";
+import { canSum_Tabulation, canSumMemoization } from "./FreeCodingCamp_CanSum";
 import { numRollsToTarget, numRollsToTarget_DP, numRollsToTarget_Memoization } from "./Leetcode1115_RollDiceWithTargetSum";
+import { coinChangeTabulation } from "./Leetcode322_CoinChange";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -84,9 +85,9 @@ describe('Tests', () => {
 
 
     it('Test Free Coding Camp: Can Sum with valid data', async () => {
-      console.log(canSumDynamicP([5, 3, 4], 7)); // true
-      console.log(canSumDynamicP([2, 4], 7)); // false
-      console.log(canSumDynamicP([2, 3, 6, 7], 7)); //true
+      console.log(canSum_Tabulation([5, 3, 4], 7)); // true
+      console.log(canSum_Tabulation([2, 4], 7)); // false
+      console.log(canSum_Tabulation([2, 3, 6, 7], 7)); //true
 
       console.log(canSumMemoization([5, 3, 4, 7], 7, {})); //true
       console.log(canSumMemoization([2, 4], 7, {})); //false
@@ -102,9 +103,9 @@ describe('Tests', () => {
       console.log(howSumMemoization([2, 4], 7, {})); //null
       console.log(howSumMemoization([2, 3, 6, 7], 7, {})); // [ 3, 2, 2 ]
 
-      console.log(howSumDynamicP([5, 3, 4, 7], 7)); //[4,3]
-      console.log(howSumDynamicP([2, 4], 7,)); //null
-      console.log(howSumDynamicP([2, 3, 6, 7], 7,)); // [ 3, 2, 2 ]
+      console.log(howSum_Tabulation([5, 3, 4, 7], 7)); //[4,3]
+      console.log(howSum_Tabulation([2, 4], 7,)); //null
+      console.log(howSum_Tabulation([2, 3, 6, 7], 7,)); // [ 3, 2, 2 ]
     });
 
     it('Test Free Coding Camp: Best Sum with valid data', async () => {
@@ -116,9 +117,9 @@ describe('Tests', () => {
       console.log(bestSumMemoization([2, 3, 5], 8, {})); // [3, 5]
       console.log(bestSumMemoization([1, 4, 5], 8, {})); // [4, 4]
 
-      console.log(bestSumDynamicP([5, 3, 4, 7], 7)); // [7]
-      console.log(bestSumDynamicP([2, 3, 5], 8)); // [3, 5]
-      console.log(bestSumDynamicP([1, 4, 5], 8)); // [4, 4]
+      console.log(bestSum_Tabulation([5, 3, 4, 7], 7)); // [7]
+      console.log(bestSum_Tabulation([2, 3, 5], 8)); // [3, 5]
+      console.log(bestSum_Tabulation([1, 4, 5], 8)); // [4, 4]
     });
 
 
@@ -131,9 +132,9 @@ describe('Tests', () => {
       console.log(canConstructMemoization('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'], {})); //false
       console.log(canConstructMemoization('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'], {})); //false
 
-      console.log(canConstructDynamicP('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); // true
-      console.log(canConstructDynamicP('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //false
-      console.log(canConstructDynamicP('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //false
+      console.log(canConstruct_Tabulation('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); // true
+      console.log(canConstruct_Tabulation('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //false
+      console.log(canConstruct_Tabulation('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //false
     });
 
     it('Test Free Coding Camp: Count Construct with valid data', async () => {
@@ -148,10 +149,10 @@ describe('Tests', () => {
       console.log(countConstructMemoization('purple', ['purp', 'p', 'ur', 'le', 'purpl'], {})); //2
 
 
-      console.log(countConstructDynamicP('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); //1
-      console.log(countConstructDynamicP('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //0
-      console.log(countConstructDynamicP('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //0
-      console.log(countConstructDynamicP('purple', ['purp', 'p', 'ur', 'le', 'purpl'])); //2
+      console.log(countConstruct_Tabulation('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); //1
+      console.log(countConstruct_Tabulation('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //0
+      console.log(countConstruct_Tabulation('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //0
+      console.log(countConstruct_Tabulation('purple', ['purp', 'p', 'ur', 'le', 'purpl'])); //2
     });
 
     it('Test Free Coding Camp: All Construct with valid data', async () => {
@@ -165,10 +166,10 @@ describe('Tests', () => {
       console.log(allConstructMemoization('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'], {})); //[]
       console.log(allConstructMemoization('purple', ['purp', 'p', 'ur', 'le', 'purpl'], {})); //[[purp, le],[p, ur, p, le]] 
 
-      console.log(allConstructDynamicP('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c'])); //[[ab, cd, ef],[ab, c, def],[abc, def],[abcd, ef]] 
-      console.log(allConstructDynamicP('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //[]
-      console.log(allConstructDynamicP('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //[]
-      console.log(allConstructDynamicP('purple', ['purp', 'p', 'ur', 'le', 'purpl'])); //[[purp, le],[p, ur, p, le]] 
+      console.log(allConstruct_Tabulation('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd', 'ef', 'c'])); //[[ab, cd, ef],[ab, c, def],[abc, def],[abcd, ef]] 
+      console.log(allConstruct_Tabulation('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar'])); //[]
+      console.log(allConstruct_Tabulation('eeeeeeeeeeeeeeeeeef', ['eeee', 'f', 'eeef'])); //[]
+      console.log(allConstruct_Tabulation('purple', ['purp', 'p', 'ur', 'le', 'purpl'])); //[[purp, le],[p, ur, p, le]] 
     });
 
 
@@ -185,6 +186,10 @@ describe('Tests', () => {
       console.log(numRollsToTarget_Memoization(1, 6, 3)); // 1 way
       console.log(numRollsToTarget_Memoization(30, 30, 500)); // 1 way
 
+    });
+
+    it('Test Leetcode 1115: Roll dice with target sum: return all possible combinations', async () => {
+      console.log(coinChangeTabulation([1,2,5], 11)); // 3: 5+5+1
     });
 });
 

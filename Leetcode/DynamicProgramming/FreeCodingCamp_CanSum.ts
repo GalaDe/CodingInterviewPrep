@@ -77,7 +77,7 @@ export function canSumMemoization(numbers: number [], targetSum: number, memo: {
     return false;
 }
 
-export function canSumDynamicP(numbers: number [], targetSum: number){
+export function canSum_Tabulation(numbers: number [], targetSum: number){
     
     const table = Array(targetSum + 1).fill(false);
 
