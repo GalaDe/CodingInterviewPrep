@@ -10,6 +10,7 @@ import { longestConsecutive, longestConsecutive_usingSet } from "./Leetcode128_L
 import { hasGroupsSizeX } from "./Leetcode914_FindPairInDeckOfCards";
 import { minDeletionSize } from "./Leetcode944_DeleteColumsToMakeSorted";
 import { minimumRounds } from "./Leetcode2244_MinimumRoundsToCompleteAllTasks";
+import { findMinArrowShots } from "./Leetcode452_MinNumberOfArrowsToBurstBallons";
 
 describe('Tests', () => {
     afterAll((done) => {
@@ -75,13 +76,17 @@ describe('Tests', () => {
         // console.log(longestConsecutive_usingSet([1,2,0,1])) //3
     })
 
-    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+    it('Test 944: Delete Colums to make sorted', async () => {
         //console.log(minDeletionSize(["abc", "bce", "cae"]));
         console.log(minDeletionSize(["rrjk","furt","guzm"]));
     })
 
-    it('Test 128: Longest Consecutive Sequence using Hash Set', async () => {
+    it('Test 2244: Minimum rounds', async () => {
         //console.log(minimumRounds([2,2,3,3,2,4,4,4,4,4]));
         console.log(minimumRounds([7,7,7,7,7,7]));
+    })
+
+    it('Test 452:  Minimum Number of Arrows to Burst Balloons', async () => {
+        console.log(findMinArrowShots([[10,16],[2,8],[1,6],[7,12]]));
     })
 });
